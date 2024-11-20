@@ -1,9 +1,22 @@
 {
-    "name": "area-calculator",
-    "version": "1.0.0",
-    "description": "A simple module for calculating areas of different shapes",
-    "main": "index.js",
-    "author": "Assanee Saksiritantawan",
-    "license": "MIT"
-  }
-  
+  "name": "@assanepoi/area-calculator",
+  "version": "1.0.0",
+  "description": "A simple module for calculating areas of different shapes",
+  "main": "index.js",
+  "author": "Assanee Saksiritantawan",
+  "license": "MIT",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/assanee/area-calculator.git"
+  },
+  "keywords": [
+    "area"
+  ],
+  "bugs": {
+    "url": "https://github.com/assanee/area-calculator/issues"
+  },
+  "homepage": "https://github.com/assanee/area-calculator#readme"
+}
