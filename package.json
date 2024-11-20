@@ -1,0 +1,9 @@
+{
+    "name": "area-calculator",
+    "version": "1.0.0",
+    "description": "A simple module for calculating areas of different shapes",
+    "main": "index.js",
+    "author": "Assanee Saksiritantawan",
+    "license": "MIT"
+  }
+  
