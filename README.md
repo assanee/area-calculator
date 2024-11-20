@@ -1,13 +1,14 @@
 
 # Area Calculator
 
-A simple Node.js module for calculating the areas of various geometric shapes including rectangles, circles, and triangles.
+A Node.js module for calculating areas of various shapes and geographical regions. This module now supports basic geometric shapes as well as areas derived from latitude and longitude.
 
 ## Features
 - Calculate the area of a rectangle.
 - Calculate the area of a circle.
 - Calculate the area of a triangle.
-- Lightweight and easy to use.
+- Calculate the approximate area between two geographical points (latitude and longitude).
+- Calculate the area of a polygon from an array of geographical coordinates.
 
 ## Installation
 
@@ -24,7 +25,13 @@ Import the module in your Node.js project and start using it:
 ### Example Code
 
 ```javascript
-const { rectangleArea, circleArea, triangleArea } = require('area-calculator');
+const {
+    rectangleArea,
+    circleArea,
+    triangleArea,
+    areaFromLatLon,
+    areaFromLatLonArray
+} = require('area-calculator');
 
 try {
     // Rectangle Area
@@ -35,6 +42,17 @@ try {
 
     // Triangle Area
     console.log("Triangle Area (base 6, height 8):", triangleArea(6, 8)); // Output: 24
+
+    // Area from Latitude and Longitude (two points)
+    console.log("Area from Lat/Lon:", areaFromLatLon(40.748817, -73.985428, 34.052235, -118.243683)); 
+
+    // Area from Latitude and Longitude Array (polygon)
+    const coords = [
+        [37.7749, -122.4194],
+        [34.0522, -118.2437],
+        [36.7783, -119.4179]
+    ];
+    console.log("Area from Lat/Lon Array:", areaFromLatLonArray(coords));
 } catch (error) {
     console.error("Error:", error.message);
 }
@@ -49,7 +67,6 @@ Calculates the area of a rectangle.
   - `width` (number): The width of the rectangle. Must be greater than 0.
   - `height` (number): The height of the rectangle. Must be greater than 0.
 - **Returns**: The area of the rectangle.
-- **Throws**: An error if `width` or `height` is less than or equal to 0.
 
 #### `circleArea(radius)`
 Calculates the area of a circle.
@@ -57,7 +74,6 @@ Calculates the area of a circle.
 - **Parameters**:
   - `radius` (number): The radius of the circle. Must be greater than 0.
 - **Returns**: The area of the circle.
-- **Throws**: An error if `radius` is less than or equal to 0.
 
 #### `triangleArea(base, height)`
 Calculates the area of a triangle.
@@ -66,11 +82,27 @@ Calculates the area of a triangle.
   - `base` (number): The base length of the triangle. Must be greater than 0.
   - `height` (number): The height of the triangle. Must be greater than 0.
 - **Returns**: The area of the triangle.
-- **Throws**: An error if `base` or `height` is less than or equal to 0.
+
+#### `areaFromLatLon(lat1, lon1, lat2, lon2)`
+Calculates the approximate area between two geographical points using their latitude and longitude.
+
+- **Parameters**:
+  - `lat1`, `lon1` (number): Latitude and longitude of the first point.
+  - `lat2`, `lon2` (number): Latitude and longitude of the second point.
+- **Returns**: The approximate area in square meters.
+
+#### `areaFromLatLonArray(coords)`
+Calculates the area of a polygon from an array of geographical coordinates.
+
+- **Parameters**:
+  - `coords` (array): An array of `[latitude, longitude]` pairs. Must contain at least 3 coordinates.
+- **Returns**: The area in square meters.
 
 ## Error Handling
 
-If any input parameter is less than or equal to 0, the function will throw an error with a descriptive message.
+All functions will throw an error if invalid parameters are provided. Examples:
+- Negative or zero dimensions for geometric shapes.
+- Insufficient coordinates for geographical calculations.
 
 ### Example
 ```javascript
