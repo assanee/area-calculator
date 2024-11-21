@@ -31,7 +31,7 @@ const {
     triangleArea,
     areaFromLatLon,
     areaFromLatLonArray
-} = require('area-calculator');
+} = require('@assanepoi/area-calculator');
 
 try {
     // Rectangle Area
