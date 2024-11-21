@@ -15,7 +15,7 @@ A Node.js module for calculating areas of various shapes and geographical region
 Install the module via npm:
 
 ```bash
-npm install area-calculator
+npm install @assanepoi/area-calculator
 ```
 
 ## Usage
